@@ -13,15 +13,15 @@ var firebaseConfig = {
   const auth = firebase.auth();
 
   function signUp(){
-      var email = document.getElementById('email-create');
-      var password = document.getElementById('password-create');
+      var email = document.getElementById('email');
+      var password = document.getElementById('password');
 
       const promise = auth.createUserWithEmailAndPassword(email.value , password.value);
       promise.catch(e => alert(e.message));
 
       alert('New account created !');
 
-      location.replace('/index.html');
+      location.replace('https://p1master10-dev.github.io/MYAPP/index.html');
   }
 
   function signIn(){
@@ -33,14 +33,14 @@ var firebaseConfig = {
 
     alert('Signed In ! ' + email);
 
-    location.replace('/index.html');
+    location.replace('https://p1master10-dev.github.io/MYAPP/index.html');
   }
 
   function signOut(){
       auth.signOut();
       alert('Signed Out !');
 
-      location.replace('/signup.html')
+      location.replace('https://p1master10-dev.github.io/MYAPP/signup.html')
   }
 
   auth.onAuthStateChanged(function(user){
@@ -48,9 +48,9 @@ var firebaseConfig = {
         var email = user.email;
         alert('Active User ' + email);
 
-        location.replace('/index.html');
+        location.replace('https://p1master10-dev.github.io/MYAPP/index.html');
     }else{
        alert('No Account Active !');
-       
+
     }
   });
