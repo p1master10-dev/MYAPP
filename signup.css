@@ -43,19 +43,6 @@
     border-radius: 1.5rem;
     padding:2%;
 }
-.btnForgetPwd{
-    color: #fff;
-    font-weight: 600;
-    text-decoration: none;
-}
-.btnForgetPwd:hover{
-    text-decoration:none;
-    color:#fff;
-}
-
-body {
-    background-image: linear-gradient(rgb(230, 19, 19) , rgb(255, 255 , 255) , black);
-}
 
 #title {
     text-shadow: 2px 0px 2px black;

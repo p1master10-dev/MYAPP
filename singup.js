@@ -13,42 +13,39 @@ var firebaseConfig = {
   const auth = firebase.auth();
 
   function signUp(){
-      var email = document.getElementById('email');
-      var password = document.getElementById('password');
+      var email = document.getElementById('email-signup');
+      var password = document.getElementById('password-signup');
 
-      const promise = auth.createUserWithEmailAndPassword(email.value , password.value);
-      promise.catch(e => alert(e.message));
-
+      const promise = auth.createUserWithEmailAndPassword(email.value, password.value);
+    if (promise.catch(e => alert(e.message)) == true) {
+        
+    } else {
       alert('New account created !');
 
-      location.replace('https://p1master10-dev.github.io/MYAPP/index.html');
+       location.replace('http://127.0.0.1:5500/index.html');
+      }
   }
 
   function signIn(){
-    var email2 = document.getElementById('email');
-    var password2 = document.getElementById('password');
+    var email = document.getElementById('email-signin');
+    var password = document.getElementById('password-signin');
 
-    const promise = auth.signInWithEmailAndPassword(email2.value , password2.value);
-    promise.catch(e => alert(e.message));
+    const promise = auth.signInWithEmailAndPassword(email.value, password.value);
+    if (promise.catch(e => alert(e.message)) == true && promise.catch(e => alert(e.message)) !== 'Signed In ! [object HTMLInputElement]') {
+      
+    } else {
+      alert('Signed In ! ' + email);
 
-    alert('Signed In ! ' + email);
-
-    location.replace('https://p1master10-dev.github.io/MYAPP/index.html');
-  }
-
-  function signOut(){
-      auth.signOut();
-      alert('Signed Out !');
-
-      location.replace('https://p1master10-dev.github.io/MYAPP/signup.html')
+      location.replace('http://127.0.0.1:5500/index.html');
+    }
   }
 
   auth.onAuthStateChanged(function(user){
     if(user){
-        var email = user.email;
-        alert('Active User ' + email);
+        var email2 = user.email;
+        alert('Active User ' + email2);
 
-        location.replace('https://p1master10-dev.github.io/MYAPP/index.html');
+        location.replace('http://127.0.0.1:5500/index.html');
     }else{
        alert('No Account Active !');
 
